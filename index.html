@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module">
+      import { createElement } from './element.js';
+      import { render } from './render.js';
+      const element = createElement(
+        'div',
+        { id: 'foo' },
+        createElement('a', null, createElement('b', null, 'bar')),
+        createElement('div', null, createElement('b', null, 'ba2r'))
+      );
+      render(element, document.getElementById('root'));
+    </script>
+  </body>
+</html>
