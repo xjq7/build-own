@@ -14,8 +14,14 @@
       const element = createElement(
         'div',
         { id: 'foo' },
-        createElement('a', null, createElement('b', null, 'bar')),
-        createElement('div', null, createElement('b', null, 'ba2r'))
+        createElement(
+          'a',
+          null,
+          createElement('b', null, 'bar'),
+          createElement('b1', null, 'bar'),
+          createElement('b2', null, 'bar')
+        ),
+        createElement('div', null, createElement('c', null, 'ba2r'))
       );
       render(element, document.getElementById('root'));
     </script>
