@@ -10,7 +10,7 @@
 
     <script type="module">
       import { createElement } from './element.js';
-      import { render } from './render.js';
+      import { render, useState } from './render.js';
       const element = createElement(
         'div',
         { id: 'foo' },
@@ -23,7 +23,21 @@
         ),
         createElement('div', null, createElement('c', null, 'ba2r'))
       );
-      render(element, document.getElementById('root'));
+
+      function App() {
+        const [num, setNum] = useState(0);
+
+        return createElement(
+          'div',
+          {
+            onClick: () => {
+              setNum((c) => c + 1);
+            },
+          },
+          num
+        );
+      }
+      render(createElement(App, null), document.getElementById('root'));
     </script>
   </body>
 </html>

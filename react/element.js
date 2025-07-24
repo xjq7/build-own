@@ -7,13 +7,7 @@ export function createElement(type, props, ...children) {
         if (typeof child === 'object') {
           return child;
         } else {
-          return {
-            type: 'TEXT_ELEMENT',
-            props: {
-              nodeValue: child,
-              children: [],
-            },
-          };
+          return createTextElement(child);
         }
       }),
     },
